@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>James Production Limited</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    marquee {
+      background: #e8f5e9;
+      color: #1b5e20;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    header {
+      background: #2e7d32;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #cart-icon {
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .card h3 {
+      margin: 0.5rem 0;
+    }
+
+    .card p {
+      margin: 0.5rem 0;
+      font-weight: bold;
+    }
+
+    button {
+      background: #2e7d32;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background: #1b5e20;
+    }
+
+    section {
+      background: white;
+      padding: 2rem;
+      margin: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .form-section {
+      max-width: 400px;
+      margin: 2rem auto;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form label {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    form input, form textarea {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    form button {
+      margin-top: 1.5rem;
+      padding: 0.75rem;
+      background: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background: #1b5e20;
+    }
+  </style>
+</head>
+<body>
+  <marquee> Welcome to James Production Limited — Innovation of Agriculture and World </marquee>
+  <marquee> New Agric Innovation — Welcome and Shop with James </marquee>
+
+  <header>
+    <h1>JamesGrow</h1>
+    <nav>
+      <ul>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#signin">Sign In</a></li>
+        <li><a href="#signup">Sign Up</a></li>
+      </ul>
+    </nav>
+    <div id="cart-icon">🛒 Cart (<span id="cart-count">0</span>)</div>
+  </header>
+
+  <section style="background: linear-gradient(to right, #a5d6a7, #66bb6a); color: white; text-align: center; padding: 2rem;">
+    <h2>Empowering Farmers, Enriching Lives 🌱</h2>
+    <p>Discover tools and seeds that grow prosperity. Shop with confidence, grow with purpose.</p>
+  </section>
+
+  <section style="text-align: center; padding: 1rem; background: #e8f5e9;">
+    <h2 style="color: #2e7d32;">Why Choose JamesGrow?</h2>
+    <p>✅ Quality agricultural products<br>✅ Affordable pricing<br>✅ Trusted by farmers across Kenya</p>
+  </section>
+
+  <section id="shop" class="product-grid"></section>
+
+  <section id="cart">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p>Total: <span id="cart-total">Ksh 0.00</span></p>
+    <button id="checkout">Checkout</button>
+
+    <form id="checkout-form" style="margin-top: 2rem; display: none;">
+      <h3>Delivery Details</h3>
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" required />
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" required />
+
+      <label for="address">Delivery Address:</label>
+      <textarea id="address" rows="3" required></textarea>
+
+      <button type="submit">Place Order</button>
+    </form>
+  </section>
+
+  <section id="location">
+    <h2>Our Location</h2>
+    <p>James Production Limited is based in Embu, Kenya.</p>
+    <p>Visit us for agricultural products, innovation, and expert support.</p>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We are dedicated to transforming agriculture through innovation, quality products, and expert support. We serve farmers across Kenya with tools, seeds, and solutions that grow success.</p>
+  </section>
+
+  <section style="background: #f1f8e9; padding: 2rem; border-radius: 8px; margin: 2rem;">
+    <h2 style="text-align: center; color: #2e7d32;">What Our Customers Say</h2>
+    <blockquote style="font-style: italic; margin: 1rem 0;">"JamesGrow helped me double my harvest. Their seeds and support are unmatched!" — Mary W., Kirinyaga</blockquote>
+    <blockquote style="font-style: italic; margin: 1rem 0;">"Affordable tools and fast delivery. I recommend James Production to every farmer I meet." — Peter M., Meru</blockquote>
+  </section>
+
+  <section id="signin" class="form-section">
+    <h2>Sign In</h2>
+    <form>
+      <label>Email:</label>
+      <input type="email" required />
+      <label>Password:</label>
+      <input type="password" required />
+      <button type="submit">Sign In</button>
+    </form>
+  </section>
+
+  <section id="signup" class="form-section">
+    <h2>Sign Up</h2>
+    <form>
+      <label>Full Name:</label>
+      <input type="text" required />
+      <label>Email:</label>
+      <input type="email" required />
+      <label>Password:</label>
+      <input type="password" required />
+      <button type="submit">Create Account</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 James Production Limited. All rights reserved.</p>
+    <p>Contact: 0718788430 | info: jamesatuta050@gmail.com</p>
+    <p>Produced by James Atuta</p>
+    <p style="margin-top: 1rem;">🌾 Join the movement. Grow with James. Your farm deserves the best.</p>
+  </footer>
+
+  <script>
+    const products = [
+      { name: "Maize Seeds", price: 250,img:"/images/maize seeds.jpg" },
+      { name: "Fertilizer", price: 1200 },
+      { name: "Watering Can", price: 800 },
+      { name: "Garden Hoe", price: 600 },
+      { name: "Sprayer", price: 2000 },
+      { name: "Tomatoes",price:120},
+            { name: "Tomato Seeds", price: 300 },
+      { name: "Wheelbarrow", price: 3500 },
+      { name: "Greenhouse Kit", price: 15000 },
+      { name: "Irrigation Pipe", price: 1000 },
+      { name: "Water Pump", price: 6000 },
+      { name: "Onion Seeds", price: 280 },
+      { name: "Compost Bin", price: 2500 }
+    ];
+
+    const shopSection = document.getElementById("shop");
+    const cart = [];
+    const cartItems = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+    const cartCount = document.getElementById("cart-count");
+    const checkoutBtn = document.getElementById("checkout");
+    const checkoutForm = document.getElementById("checkout-form");
+
+    function updateCart() {
+      cartItems.innerHTML = "";
+      let total = 0;
+      cart.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.textContent = `${item.name} - Ksh ${item.price}`;
+
+        const removeBtn = document.createElement("button");
+        removeBtn.textContent = "Remove";
+        removeBtn.style.marginLeft = "10px";
+        removeBtn.style.background = "#c62828";
+        removeBtn.style.color = "white";
+        removeBtn.style.border = "none";
+        removeBtn.style.padding = "0.3rem 0.6rem";
+        removeBtn.style.borderRadius = "4px";
+        removeBtn.style.cursor = "pointer";
+
+        removeBtn.onclick = () => {
+          cart.splice(index, 1);
+          updateCart();
+        };
+
+        li.appendChild(removeBtn);
+        cartItems.appendChild(li);
+        total += item.price;
+      });
+      cartTotal.textContent = `Ksh ${total.toFixed(2)}`;
+      cartCount.textContent = cart.length;
+    }
+
+    products.forEach(product => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const img = document.createElement("img");
+      img.src = `https://via.placeholder.com/220x150?text=${encodeURIComponent(product.name)}`;
+      img.alt = product.name;
+
+      const title = document.createElement("h3");
+      title.textContent = product.name;
+
+      const price = document.createElement("p");
+      price.textContent = `Ksh ${product.price}`;
+
+      const button = document.createElement("button");
+      button.textContent = "Buy Now";
+      button.onclick = () => {
+        cart.push(product);
+        updateCart();
+      };
+
+      card.appendChild(img);
+      card.appendChild(title);
+      card.appendChild(price);
+      card.appendChild(button);
+      shopSection.appendChild(card);
+    });
+
+    checkoutBtn.onclick = () => {
+      if (cart.length === 0) {
+        alert("Your cart is empty. Add items before checking out.");
+      } else {
+        checkoutForm.style.display = "block";
+        checkoutBtn.style.display = "none";
+      }
+    };
+
+    checkoutForm.onsubmit = (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const address = document.getElementById("address").value.trim();
+
+      if (name && phone && address) {
+        alert(`Thank you, ${name}! Your order has been placed.\nWe’ll contact you at ${phone}.`);
+        cart.length = 0;
+        updateCart();
+        checkoutForm.reset();
+        checkoutForm.style.display = "none";
+        checkoutBtn.style.display = "inline-block";
+      } else {
+        alert("Please fill in all fields.");
+      }
+    };
+  </script>
+</body>
